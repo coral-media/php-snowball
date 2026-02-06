@@ -3,6 +3,7 @@ ARG_WITH("snowball", "Snowball (libstemmer) support", "yes");
 if (PHP_SNOWBALL != "no") {
   var snowballBase = "lib\\libstemmer";
 
+  ADD_FLAG("CFLAGS_SNOWBALL", "/DHAVE_SNOWBALL");
   ADD_FLAG("CFLAGS_SNOWBALL", "/I" + snowballBase);
   ADD_FLAG("CFLAGS_SNOWBALL", "/I" + snowballBase + "\\include");
   ADD_FLAG("CFLAGS_SNOWBALL", "/I" + snowballBase + "\\runtime");
