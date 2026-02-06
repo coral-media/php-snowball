@@ -1,0 +1,32 @@
+{
+  "name": "coral-media/snowball",
+  "description": "Snowball (libstemmer) bindings for PHP",
+  "keywords": [
+    "php-ext",
+    "snowball",
+    "stemmer",
+    "nlp",
+    "text-processing"
+  ],
+  "authors": [
+    {
+      "name": "Rafael Ernesto Espinosa Santiesteban",
+      "email": "rernesto.espinosa@gmail.com"
+    }
+  ],
+  "type": "php-ext",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.1"
+  },
+  "php-ext": {
+    "extension-name": "snowball",
+    "configure-options": [
+      {
+        "name": "with-snowball",
+        "description": "Build with vendored Snowball (libstemmer) sources",
+        "needs-value": false
+      }
+    ]
+  }
+}

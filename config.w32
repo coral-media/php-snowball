@@ -1,0 +1,5 @@
+ARG_WITH("snowball", "Snowball (libstemmer) support", "no");
+
+if (PHP_SNOWBALL != "no") {
+  EXTENSION("snowball", "snowball.c");
+}
