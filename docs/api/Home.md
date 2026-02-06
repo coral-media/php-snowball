@@ -7,10 +7,10 @@ This is an automatically generated documentation for **Snowball Extension**.
 
 #### Functions
 
-| Function                                                | Description                 |
-|---------------------------------------------------------|-----------------------------|
-| [`snowball_version()`](./functions/snowball_version.md) |                             |
-| [`snowball_stem()`](./functions/snowball_stem.md)       | Stem a word using Snowball. |
+| Function                                                | Description                              |
+|---------------------------------------------------------|------------------------------------------|
+| [`snowball_version()`](./functions/snowball_version.md) | Returns coral-media/php-snowball version |
+| [`snowball_stem()`](./functions/snowball_stem.md)       | Stem a word using Snowball.              |
 
 #### Constants
 

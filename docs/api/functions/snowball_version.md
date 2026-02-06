@@ -1,4 +1,6 @@
 
+Returns coral-media/php-snowball version
+
 ***
 
 * Full name: `snowball_version`

@@ -1,6 +1,8 @@
 <?php
 /** @generate-arginfo */
 /**
+ * Returns coral-media/php-snowball version
+ * 
  * @return string
  */
 function snowball_version(): string {}
