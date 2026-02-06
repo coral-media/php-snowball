@@ -1,4 +1,4 @@
-name: Publish Windows Releases (PIE)
+name: Windows Release Build
 
 on:
   release:
