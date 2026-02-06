@@ -13,7 +13,7 @@ pie install --with-snowball
 From [Packagist](https://packagist.org)
 
 ```sh
-pie install coral-media/snowball --with-snowball
+pie install coral-media/php-snowball --with-snowball
 ```
 
 Further info [PIE official repository](https://github.com/php/pie)
