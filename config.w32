@@ -8,9 +8,8 @@ if (PHP_SNOWBALL != "no") {
   ADD_FLAG("CFLAGS_SNOWBALL", "/I" + snowballBase + "\\runtime");
   ADD_FLAG("CFLAGS_SNOWBALL", "/I" + snowballBase + "\\src_c");
 
-  ADD_SOURCES("snowball", "snowball.c", "snowball");
-
-  ADD_SOURCES("snowball", "" +
+  EXTENSION("snowball",
+    "snowball.c " +
     "lib\\libstemmer\\src_c\\stem_ISO_8859_1_danish.c " +
     "lib\\libstemmer\\src_c\\stem_UTF_8_danish.c " +
     "lib\\libstemmer\\src_c\\stem_ISO_8859_1_dutch.c " +
@@ -44,5 +43,6 @@ if (PHP_SNOWBALL != "no") {
     "lib\\libstemmer\\src_c\\stem_UTF_8_turkish.c " +
     "lib\\libstemmer\\runtime\\api.c " +
     "lib\\libstemmer\\runtime\\utilities.c " +
-    "lib\\libstemmer\\libstemmer\\libstemmer.c", "snowball");
+    "lib\\libstemmer\\libstemmer\\libstemmer.c"
+  );
 }
