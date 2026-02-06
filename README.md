@@ -43,6 +43,11 @@ Explicit language + encoding:
 echo snowball_stem('corriendo', SNOWBALL_LANG_ES, SNOWBALL_ENCODING_UTF_8); // corr
 ```
 
+## Documentation
+
+- Generated [API docs](docs/api/Home.md)
+- Official [Snowball Website](https://snowballstem.org/)
+
 ## Notes
 
 - Vendored libstemmer sources live under `lib/libstemmer`.
