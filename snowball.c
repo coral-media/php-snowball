@@ -67,9 +67,77 @@ PHP_FUNCTION(snowball_stem)
 #endif
 }
 
+PHP_FUNCTION(snowball_stem_array)
+{
+  zval *input = NULL;
+  char *language = NULL;
+  char *encoding = NULL;
+  size_t language_len = 0;
+  size_t encoding_len = 0;
+
+  ZEND_PARSE_PARAMETERS_START(1, 3)
+    Z_PARAM_ARRAY(input)
+    Z_PARAM_OPTIONAL
+    Z_PARAM_STRING(language, language_len)
+    Z_PARAM_STRING(encoding, encoding_len)
+  ZEND_PARSE_PARAMETERS_END();
+
+#ifdef HAVE_SNOWBALL
+  const char *language_cstr = "english";
+  if (language != NULL && language_len > 0) {
+    language_cstr = language;
+  }
+
+  const char *encoding_cstr = "UTF_8";
+  if (encoding != NULL && encoding_len > 0) {
+    encoding_cstr = encoding;
+  }
+
+  struct sb_stemmer *stemmer = sb_stemmer_new(language_cstr, encoding_cstr);
+  if (stemmer == NULL) {
+    zend_throw_error(NULL, "Unknown or unsupported language '%s'", language_cstr);
+    RETURN_THROWS();
+  }
+
+  array_init(return_value);
+
+  zend_string *str_key = NULL;
+  zend_ulong num_key = 0;
+  zval *val = NULL;
+
+  ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(input), num_key, str_key, val) {
+    if (Z_TYPE_P(val) != IS_STRING) {
+      sb_stemmer_delete(stemmer);
+      zend_throw_error(NULL, "snowball_stem_array expects array of strings");
+      RETURN_THROWS();
+    }
+
+    const sb_symbol *result = sb_stemmer_stem(stemmer, (const sb_symbol *) Z_STRVAL_P(val), (int) Z_STRLEN_P(val));
+    if (result == NULL) {
+      sb_stemmer_delete(stemmer);
+      zend_throw_error(NULL, "Snowball stemming failed");
+      RETURN_THROWS();
+    }
+
+    int result_len = sb_stemmer_length(stemmer);
+    if (str_key) {
+      add_assoc_stringl_ex(return_value, ZSTR_VAL(str_key), ZSTR_LEN(str_key), (const char *) result, result_len);
+    } else {
+      add_index_stringl(return_value, num_key, (const char *) result, result_len);
+    }
+  } ZEND_HASH_FOREACH_END();
+
+  sb_stemmer_delete(stemmer);
+#else
+  zend_throw_error(NULL, "Snowball library not available");
+  RETURN_THROWS();
+#endif
+}
+
 static const zend_function_entry snowball_functions[] = {
   PHP_FE(snowball_version, arginfo_snowball_version)
   PHP_FE(snowball_stem, arginfo_snowball_stem)
+  PHP_FE(snowball_stem_array, arginfo_snowball_stem_array)
   PHP_FE_END
 };
 

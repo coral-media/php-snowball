@@ -47,6 +47,14 @@ Explicit language + encoding:
 echo snowball_stem('corriendo', SNOWBALL_LANG_ES, SNOWBALL_ENCODING_UTF_8); // corr
 ```
 
+Batch stemming for arrays (more efficient than looping in PHP):
+
+```php
+<?php
+$words = ['running', 'jumps'];
+print_r(snowball_stem_array($words)); // ['run', 'jump']
+```
+
 ## Documentation
 
 - Generated [API docs](https://coral-media.github.io/php-snowball/docs/api/Home)

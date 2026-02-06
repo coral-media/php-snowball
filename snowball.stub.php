@@ -18,6 +18,16 @@ function snowball_version(): string {}
 function snowball_stem(string $word, ?string $language = null, ?string $encoding = null): string {}
 
 /**
+ * Stem an array of words using Snowball.
+ *
+ * @param string[] $words
+ * @param string|null $language Defaults to "english" when omitted or empty.
+ * @param string|null $encoding Defaults to "UTF_8" when omitted or empty.
+ * @return string[]
+ */
+function snowball_stem_array(array $words, ?string $language = null, ?string $encoding = null): array {}
+
+/**
  * Snowball encoding constants.
  */
 /** @var string */
