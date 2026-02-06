@@ -45,7 +45,7 @@ echo snowball_stem('corriendo', SNOWBALL_LANG_ES, SNOWBALL_ENCODING_UTF_8); // c
 
 ## Documentation
 
-- Generated [API docs](docs/api/Home.md)
+- Generated [API docs](https://coral-media.github.io/php-snowball)
 - Official [Snowball Website](https://snowballstem.org/)
 
 ## Notes
