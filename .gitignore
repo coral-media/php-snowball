@@ -33,6 +33,7 @@ mkinstalldirs
 configure.ac
 Makefile*
 *.cache
+*.phpdoc
 
 # phpize / PHP extension build
 modules/
