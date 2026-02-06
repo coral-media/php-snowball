@@ -1,4 +1,4 @@
-# coral-media/snowball (PHP extension)
+# coral-media/php-snowball (PHP extension)
 
 Minimal PECL-style scaffold for a Snowball (libstemmer) extension with vendored sources.
 
@@ -45,7 +45,7 @@ echo snowball_stem('corriendo', SNOWBALL_LANG_ES, SNOWBALL_ENCODING_UTF_8); // c
 
 ## Documentation
 
-- Generated [API docs](https://coral-media.github.io/php-snowball)
+- Generated [API docs](https://coral-media.github.io/php-snowball/docs/api/Home)
 - Official [Snowball Website](https://snowballstem.org/)
 
 ## Notes
