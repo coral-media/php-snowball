@@ -27,6 +27,10 @@ make -j"$(nproc)"
 make install
 ```
 
+## Windows support
+
+Check the [releases](https://github.com/coral-media/php-snowball/releases/) page. Download the compatible asset with your PHP version and make sure you load the extension in `php.ini`.
+
 ## Usage
 
 Basic stemming (defaults to English + UTF_8):
