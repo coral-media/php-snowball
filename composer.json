@@ -1,5 +1,5 @@
 {
-  "name": "coral-media/snowball",
+  "name": "coral-media/php-snowball",
   "description": "Snowball (libstemmer) bindings for PHP",
   "keywords": [
     "php-ext",
